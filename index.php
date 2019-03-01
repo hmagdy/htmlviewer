@@ -112,7 +112,8 @@
     </form>
 </div>
 
-<iframe id="iframe-id" src="http://localhost:5000/td2-integrations/us-central1/api/iframe"
+<!--<iframe id="iframe-id" src="http://localhost:5000/td2-integrations/us-central1/api/iframe"-->
+<iframe id="iframe-id" src="https://us-central1-td2-integrations.cloudfunctions.net/api/iframe"
         style="display: none;"></iframe>
 
 <script>
