@@ -46,7 +46,7 @@ function doStep() {
     let companyId = $("#companyId").val()
     let token = $("#token").val()
     if(token && companyId) {
-        let url = 'https://us-central1-td2-integrations.cloudfunctions.net/api/slack/auth?companyId=XDZvDmjZnQE1rFYB&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlhEWnZEbWpablFFMXJGWUEiLCJyZXYiOjIsImV4cCI6IjIwMTktMDUtMjlUMjE6MjU6MjMrMDA6MDAiLCJkZXYiOiIyMiIsInJvIjoxfQ._tWC4y4RVKbl7TOyoI20rPWh4UMfmjK1agIcXvmId-wsss'
+        let url = 'https://us-central1-td2-integrations.cloudfunctions.net/api/slack/auth?companyId=XDZvDmjZnQE1rFYB&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlhEWnZEbWpablFFMXJGWUEiLCJyZXYiOjIsImV4cCI6IjIwMTktMDUtMjlUMjE6MjU6MjMrMDA6MDAiLCJkZXYiOiIyMiIsInJvIjoxfQ._tWC4y4RVKbl7TOyoI20rPWh4UMfmjK1agIcXvmId-w'
         //let url = 'http://localhost:5000/td2-integrations/us-central1/api/slack/auth?companyId=XDZvDmjZnQE1rFYB&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlhEWnZEbWpablFFMXJGWUEiLCJyZXYiOjIsImV4cCI6IjIwMTktMDUtMjlUMjE6MjU6MjMrMDA6MDAiLCJkZXYiOiIyMiIsInJvIjoxfQ._tWC4y4RVKbl7TOyoI20rPWh4UMfmjK1agIcXvmId-w';
         window.open(url)
         $(" [href='#next']").click()
