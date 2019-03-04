@@ -43,11 +43,16 @@ $(function(){
 
 
 function doStep() {
-    let companyId = $("#companyId").val()
-    let token = $("#token").val()
+    let companyId = $("#companyId").val();
+    let token = $("#token").val();
     if(token && companyId) {
-        let url = 'https://us-central1-td2-integrations.cloudfunctions.net/api/slack/auth?companyId=XDZvDmjZnQE1rFYB&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlhEWnZEbWpablFFMXJGWUEiLCJyZXYiOjIsImV4cCI6IjIwMTktMDUtMjlUMjE6MjU6MjMrMDA6MDAiLCJkZXYiOiIyMiIsInJvIjoxfQ._tWC4y4RVKbl7TOyoI20rPWh4UMfmjK1agIcXvmId-w'
+        let back_url = "http://localhost/1/back.php";
+        let envURL = 'https://us-central1-td2-integrations.cloudfunctions.net'; //prod
+        // let envURL = 'http://localhost:5000/td2-integrations/us-central1'; //dev
+        let url = `${envURL}/api/slack/auth?companyId=${companyId}&token=${token}&back=${back_url}`
         //let url = 'http://localhost:5000/td2-integrations/us-central1/api/slack/auth?companyId=XDZvDmjZnQE1rFYB&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlhEWnZEbWpablFFMXJGWUEiLCJyZXYiOjIsImV4cCI6IjIwMTktMDUtMjlUMjE6MjU6MjMrMDA6MDAiLCJkZXYiOiIyMiIsInJvIjoxfQ._tWC4y4RVKbl7TOyoI20rPWh4UMfmjK1agIcXvmId-w';
+        // alert(url);
+        // console.log(url)
         window.open(url)
         $(" [href='#next']").click()
     }else{

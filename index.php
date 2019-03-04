@@ -113,24 +113,24 @@
 </div>
 
 <!--<iframe id="iframe-id" src="http://localhost:5000/td2-integrations/us-central1/api/iframe"-->
-<iframe id="iframe-id" src="https://us-central1-td2-integrations.cloudfunctions.net/api/iframe"
-        style="display: none;"></iframe>
+<!--<iframe id="iframe-id" src="https://us-central1-td2-integrations.cloudfunctions.net/api/iframe" style="display: none;">    -->
+<!--</iframe>-->
 
 <script>
-    window.onload = function () {
-
-        const iframe = document.getElementById('iframe-id');
-
-        // iframe.contentWindow.onload = function () {
-            const ch = new iframe.contentWindow.BroadcastChannel('TD2');
-            ch.addEventListener('message', function (e) {
-                console.log('Message:', e.data);
-                console.log('Message:', e.data.status);
-                // console.log('Message:', JSON.parse(e.data.users));
-            });
-
-        // }
-    }
+    // window.onload = function () {
+    //
+    //     const iframe = document.getElementById('iframe-id');
+    //
+    //     // iframe.contentWindow.onload = function () {
+    //         const ch = new iframe.contentWindow.BroadcastChannel('TD2');
+    //         ch.addEventListener('message', function (e) {
+    //             console.log('Message:', e.data);
+    //             console.log('Message:', e.data.status);
+    //             // console.log('Message:', JSON.parse(e.data.users));
+    //         });
+    //
+    //     // }
+    // }
     // const ch2 = new BroadcastChannel('TD2');
     // ch2.addEventListener('message', function (e) {
     //     console.log('Message:', e.data);
