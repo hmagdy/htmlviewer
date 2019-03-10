@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+
+</head>
+
+<body>
+
+  <div id="mapid" style="width: 1300px; height: 700px"></div>
+  <script>
+    //-------------------------------------------------ADDING TIFF MAp-------------------------------------------------
+
+    var tiffmap1 = L.layerGroup();
+    img1 = 'img/Test.png',
+      imageBounds = [
+        [54.943302, -1.720541],
+        [54.943221, -1.704920],
+        [54.934335, -1.705046],
+        [54.934343, -1.720588]
+      ];
+    L.imageOverlay(img1, imageBounds).addTo(tiffmap1);
+    var tiffmap2 = L.layerGroup();
+    img2 = 'img/Test2.png',
+      imageBounds = [
+        [54.952326, -1.720426],
+        [54.952298, -1.704888],
+        [54.943302, -1.720541],
+        [54.943221, -1.704920]
+      ];
+    L.imageOverlay(img2, imageBounds).addTo(tiffmap2);
+
+    //-------------------------------------------------Base Map -------------------------------------------------
+
+    var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery � <a href="https://www.mapbox.com/">Mapbox</a>',
+      mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+    var Satellite = L.tileLayer(mbUrl, {
+        id: 'mapbox.satellite',
+        attribution: mbAttr
+      }),
+      streets = L.tileLayer(mbUrl, {
+        id: 'mapbox.streets',
+        attribution: mbAttr
+      });
+    var mymap = L.map('mapid', {
+      center: [54.938837, -1.712778],
+      zoom: 14,
+      layers: [Satellite, tiffmap1, tiffmap2]
+    });
+
+    //-------------------------------------------------Layer Control------------------------------------------------
+
+    var baseLayers = {
+      "Satellite": Satellite,
+      "Streets": streets
+    };
+
+    var overlays = {
+      "map 1": tiffmap1,
+      "map 2": tiffmap2
+    };
+    L.control.layers(baseLayers, overlays).addTo(mymap);
+  </script>
+
+</body>
+
+</html>
